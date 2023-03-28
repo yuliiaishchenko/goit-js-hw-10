@@ -28,7 +28,7 @@ function onSearchCountry(evt){
 fetchCounties(searchCountry).then(data => {
     if (data.length > 10){
 Notify.info('Too many matches found. Please enter a more specific name.');
-    };
+    }
     else{
         resetMarkup(countryInfo);
         createMarkupCountryInfo(data);
