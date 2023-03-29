@@ -16,16 +16,16 @@ searchBox.addEventListener('input', debounce(onSearchCountry,DEBOUNCE_DELAY));
 function onSearchCountry(evt){
     evt.preventDefault();
 
-    const searchCountry = evt.target.value.trim();
+    const searchCountries = evt.target.value.trim();
 
-    if (!searchCountry){
+    if (!searchCountries){
         resetMarkup(countryList);
         resetMarkup(countryInfo);
         return;
     }
 
 
-fetchCounties(searchCountry)
+    fetchCounties(searchCountries)
 .then(result => {
     if (result.length > 10){
 Netflix.Notify.info('Too many matches found. Please enter a more specific name.');
