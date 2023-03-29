@@ -1,5 +1,5 @@
 import './css/styles.css';
-import { fetchCounties } from '../js/fetchCountries';
+import { fetchCounties } from './js/fetchCountries';
 import debounce from 'lodash.debounce';
 import Netflix from 'notiflix';
 
@@ -25,11 +25,11 @@ function onSearchCountry(evt){
     }
 
 
-fetchCounties(searchCountry).then(data => {
-    if (data.length > 10){
+fetchCounties(searchCountry).then(result => {
+    if (result.length > 10){
 Netflix.Notify.info('Too many matches found. Please enter a more specific name.');
     }
-    else if (data.length >= 2 && data.length <= 10){
+    else if (result.length >= 2 && result.length <= 10){
         resetMarkup(countryList)
         createMarkupCountryList(data)
         resetMarkup(countryInfo)
