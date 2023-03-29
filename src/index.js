@@ -1,7 +1,7 @@
 import './css/styles.css';
 import { fetchCounties } from '../js/fetchCountries';
 import debounce from 'lodash.debounce';
-import {Notify} from 'notiflix';
+import Notiflix from 'notiflix';
 
 
 const DEBOUNCE_DELAY = 300;
@@ -27,7 +27,7 @@ function onSearchCountry(evt){
 
 fetchCounties(searchCountry).then(data => {
     if (data.length > 10){
-Notify.info('Too many matches found. Please enter a more specific name.');
+Notiflix.Notify.info('Too many matches found. Please enter a more specific name.');
     }
     else if (data.length >= 2 && data.length <= 10){
         resetMarkup(countryList)
@@ -40,7 +40,7 @@ Notify.info('Too many matches found. Please enter a more specific name.');
         resetMarkup(countryList);
     }
 }).catch(error => {
-    Notify.failure('Oops, there is no country with that name');
+    Notiflix.Notify.failure('Oops, there is no country with that name');
 
 })
 function createMarkupCountryList(data){
