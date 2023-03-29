@@ -1,7 +1,7 @@
 import './css/styles.css';
 import { fetchCounties } from '../js/fetchCountries';
 import debounce from 'lodash.debounce';
-import Notify from 'notiflix';
+import {Notify} from 'notiflix';
 
 
 const DEBOUNCE_DELAY = 300;
@@ -29,15 +29,29 @@ fetchCounties(searchCountry).then(data => {
     if (data.length > 10){
 Notify.info('Too many matches found. Please enter a more specific name.');
     }
+    else if (data.length >= 2 && data.length <= 10){
+        resetMarkup(countryList)
+        createMarkupCountryList(data)
+        resetMarkup(countryInfo)
+    }
     else{
         resetMarkup(countryInfo);
         createMarkupCountryInfo(data);
         resetMarkup(countryList);
     }
 }).catch(error => {
-    Notifly.failure('Oops, there is no country with that name');
+    Notify.failure('Oops, there is no country with that name');
 
 })
+function createMarkupCountryList(data){
+    const markup =data.map(el => {
+        return`
+        <li class = "country_item">
+        <img scr = "${el.flags.svg}" alt ="${el.name.official}"/>
+        <p>${el.name.official}</p>
+        </li>`
+    })
+}
 
 function createMarkupCountryInfo(data){
     const markup = data.map(({name, capital, population, flags, languages}) => {
@@ -47,13 +61,13 @@ function createMarkupCountryInfo(data){
         <p class = "country_name">${name.official}</p>
         </div>
         <ul class = "country_info">
-        <li class = "country_item"><b>Capital</b>:
+        <li class = "country_item"><p>Capital</p>:
         <span class = "country_span">${capital}</span>
         </li>        
-        <li class = "country_item"><b>Population</b>:
+        <li class = "country_item"><p>Population</p>:
         <span class = "country_span">${population}</span>
         </li> 
-        <li class = "country_item"><b>Languages</b>:
+        <li class = "country_item"><p>Languages</p>:
         <span class = "country_span">${languages}</span>
         </li> 
         </ul>
@@ -61,4 +75,8 @@ function createMarkupCountryInfo(data){
     }).join('');
 
     return countryInfo.insertAdjacentHTML('beforeend', markup)
+}
+
+function resetMarkup(el){
+    el.innerHTML = ''
 }
