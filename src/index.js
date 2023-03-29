@@ -16,7 +16,7 @@ searchBox.addEventListener('input', debounce(onSearchCountry,DEBOUNCE_DELAY));
 function onSearchCountry(evt){
     evt.preventDefault();
 
-    const searchCountry = searchBox.value.trim();
+    const searchCountry = evt.target.value.trim();
 
     if (!searchCountry){
         resetMarkup(countryList);
@@ -25,9 +25,11 @@ function onSearchCountry(evt){
     }
 
 
-fetchCounties(searchCountry).then(result => {
+fetchCounties(searchCountry)
+.then(result => {
     if (result.length > 10){
 Netflix.Notify.info('Too many matches found. Please enter a more specific name.');
+return;
     }
     else if (result.length >= 2 && result.length <= 10){
         resetMarkup(countryList)
