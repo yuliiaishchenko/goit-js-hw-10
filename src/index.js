@@ -16,7 +16,7 @@ searchBox.addEventListener('input', debounce(onSearchCountry,DEBOUNCE_DELAY));
 function onSearchCountry(evt){
     evt.preventDefault();
 
-    const searchCountry = searchBox.target.value.trim();
+    const searchCountry = searchBox.value.trim();
 
     if (!searchCountry){
         resetMarkup(countryList);
@@ -39,7 +39,7 @@ Notiflix.Notify.info('Too many matches found. Please enter a more specific name.
         createMarkupCountryInfo(data);
         resetMarkup(countryList);
     }
-}).catch(err => {
+}).catch( err => {
     Notiflix.Notify.failure('Oops, there is no country with that name');
 
 })}
