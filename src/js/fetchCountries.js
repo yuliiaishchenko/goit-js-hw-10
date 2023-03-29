@@ -1,4 +1,4 @@
-const BASE_URL = 'https://restcountries.com/v3.1/name/{name}';
+const BASE_URL = 'https://restcountries.com/v3.1/name';
 
 export function fetchCounties (name) {
 fetch(`${BASE_URL}/{name}?fields=name.official,capital,population,flags.svg,languages`).then(
