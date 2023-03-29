@@ -6,24 +6,24 @@ import Notiflix from 'notiflix';
 
 const DEBOUNCE_DELAY = 300;
 
-const input = document.querySelector('#search-box');
+const searchBox = document.querySelector('#search-box');
 const countryList = document.querySelector('.country-list');
 const countryInfo = document.querySelector('.country-info');
 
 
-input.addEventListener('input', debounce(onSearchCountry,DEBOUNCE_DELAY));
+searchBox.addEventListener('input', debounce(onSearchCountry,DEBOUNCE_DELAY));
 
 function onSearchCountry(evt){
     evt.preventDefault();
 
-    const searchCountry = input.target.value.trim();
+    const searchCountry = searchBox.target.value.trim();
 
     if (!searchCountry){
         resetMarkup(countryList);
         resetMarkup(countryInfo);
         return;
     }
-}
+
 
 fetchCounties(searchCountry).then(data => {
     if (data.length > 10){
@@ -42,7 +42,7 @@ Notiflix.Notify.info('Too many matches found. Please enter a more specific name.
 }).catch(err => {
     Notiflix.Notify.failure('Oops, there is no country with that name');
 
-})
+})}
 function createMarkupCountryList(data){
     const markup =data.map(el => {
         return`
