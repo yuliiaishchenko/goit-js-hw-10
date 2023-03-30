@@ -63,10 +63,10 @@ function createMarkupCountryInfo(result){
         <p class = "country__name">${name.official}</p>
         </div>
         <ul class = "country__info">
-        <li class = "country__item"><p>Capital</p>:
+        <li class = "country__item"><p>Capital:</p>
         <span class = "country__span">${capital}</span>
         </li>        
-        <li class = "country__item"><p>Population</p>:
+        <li class = "country__item"><p>Population:</p>
         <span class = "country__span">${population}</span>
         </li> 
         <li class = "country__item"><p>Languages:</p><span>${Object.values(languages).join(', ')}</span>
