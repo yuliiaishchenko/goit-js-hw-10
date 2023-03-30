@@ -7,7 +7,9 @@ body {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #212121;
+  color: darkblue;
+  font-size: 20px;
+  font-weight: 500;
   line-height: 1.5;
   background-image: url(https://t4.ftcdn.net/jpg/05/54/99/47/240_F_554994768_y12jPZiLpTmRDvwJJArR6C16XXT7CAoE.jpg);
   background-repeat: no-repeat;
