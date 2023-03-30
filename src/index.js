@@ -33,20 +33,20 @@ return;
     }
     else if (result.length >= 2 && result.length <= 10){
         resetMarkup(countryList)
-        createMarkupCountryList(data)
+        createMarkupCountryList(result)
         resetMarkup(countryInfo)
     }
     else{
         resetMarkup(countryInfo);
-        createMarkupCountryInfo(data);
+        createMarkupCountryInfo(result);
         resetMarkup(countryList);
     }
 }).catch( error => {
     Netflix.Notify.failure('Oops, there is no country with that name');
 
 })}
-function createMarkupCountryList(data){
-    const markup =data.map(el => {
+function createMarkupCountryList(result){
+    const markup =result.map(el => {
         return`
         <li class = "country_item">
         <img scr = "${el.flags.svg}" alt ="${el.name.official}"/>
@@ -55,8 +55,8 @@ function createMarkupCountryList(data){
     })
 }
 
-function createMarkupCountryInfo(data){
-    const markup = data.map(({name, capital, population, flags, languages}) => {
+function createMarkupCountryInfo(result){
+    const markup = result.map(({name, capital, population, flags, languages}) => {
         return `
         <div class="country_flag>
         <img class = "country_img" src = "${flags.svg}" alt = "flag">
