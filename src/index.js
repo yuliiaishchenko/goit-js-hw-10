@@ -49,7 +49,7 @@ function createMarkupCountryList(result){
     const markup =result.map(({ name, flags }) => {
         return`
         <li class = "country-list__item">
-        <img class = "country-list__img" src = "${flags.png}" alt ="flag" width="400" height="150"/>
+        <img class = "country-list__img" src = "${flags.png}" alt ="flag" width="50" height="30"/>
         <p class = "country-list__text">${name.official}</p>
         </li>`
     })
