@@ -74,10 +74,14 @@ function createMarkupCountryInfo(result){
         <li class = "country__item"><p>Languages:</p><span>${Object.values(languages).join(', ')}</span>
         </li> 
         </ul>
+        
         `
+        
     }).join('');
 
-    return countryInfo.insertAdjacentHTML('beforeend', markup)
+    return countryInfo.insertAdjacentHTML('beforeend', markup);
+
+     
 }
 
 function resetMarkup(el){
