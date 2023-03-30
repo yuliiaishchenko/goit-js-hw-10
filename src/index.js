@@ -61,15 +61,15 @@ function createMarkupCountryInfo(result){
     const markup = result.map(({ name, capital, population, flags, languages }) => {
         return `
         <div class="country__flag>
-        <img class = "country__img" src = "${flags.svg}" alt = "flag">
+        <img class = "country__img" src = "${flags.svg}" alt = "flag"></div>
         <p class = "country__name">${name.official}</p>
-        </div>
-        <ul class = "country__info">
-        <li class = "country__item"><p>Capital:</p>
-        <span class = "country__span">${capital}</span>
+        
+        <ul class = "country-info">
+        <li class = "country-info__item"><p>Capital:</p>
+        <span class = "country-info__span">${capital}</span>
         </li>        
-        <li class = "country__item"><p>Population:</p>
-        <span class = "country__span">${population}</span>
+        <li class = "country-info__item"><p>Population:</p>
+        <span class = "country-info__span">${population}</span>
         </li> 
         <li class = "country__item"><p>Languages:</p><span>${Object.values(languages).join(', ')}</span>
         </li> 
@@ -81,5 +81,5 @@ function createMarkupCountryInfo(result){
 }
 
 function resetMarkup(el){
-    el.innerHTML = ''
+    el.innerHTML = '';
 }
