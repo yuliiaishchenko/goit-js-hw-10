@@ -46,31 +46,30 @@ return;
 
 })}
 function createMarkupCountryList(result){
-    const markup =result.map(el => {
+    const markup =result.map(({ name, flags }) => {
         return`
-        <li class = "country_item">
-        <img scr = "${el.flags.svg}" alt ="${el.name.official}"/>
-        <p>${el.name.official}</p>
+        <li class = "country-list__item">
+        <img class = "country-list__img" scr = "${flags.svg}" alt ="${name.official}"/>
+        <p class = "country-list__text">${name.official}</p>
         </li>`
     })
 }
 
 function createMarkupCountryInfo(result){
-    const markup = result.map(({name, capital, population, flags, languages}) => {
+    const markup = result.map(({ name, capital, population, flags, languages }) => {
         return `
-        <div class="country_flag>
-        <img class = "country_img" src = "${flags.svg}" alt = "flag">
-        <p class = "country_name">${name.official}</p>
+        <div class="country__flag>
+        <img class = "country__img" src = "${flags.svg}" alt = "${name.official}">
+        <p class = "country__name">${name.official}</p>
         </div>
-        <ul class = "country_info">
-        <li class = "country_item"><p>Capital</p>:
-        <span class = "country_span">${capital}</span>
+        <ul class = "country__info">
+        <li class = "country__item"><p>Capital</p>:
+        <span class = "country__span">${capital}</span>
         </li>        
-        <li class = "country_item"><p>Population</p>:
-        <span class = "country_span">${population}</span>
+        <li class = "country__item"><p>Population</p>:
+        <span class = "country__span">${population}</span>
         </li> 
-        <li class = "country_item"><p>Languages</p>:
-        <span class = "country_span">${languages}</span>
+        <li class = "country__item"><p>Languages:</p><span>${Object.values(languages).join(', ')}</span>
         </li> 
         </ul>
         `
