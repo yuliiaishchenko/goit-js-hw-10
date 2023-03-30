@@ -23,4 +23,5 @@ body {
     font-style: oblique;
     border-radius: 15px;
     border-color: cadetblue ;
+    opacity: 0.5;
 }
