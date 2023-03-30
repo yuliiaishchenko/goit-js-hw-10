@@ -7,5 +7,5 @@ return fetch(`${BASE_URL}${name}?fields=name,capital,population,flags,languages`
         if (!response.ok)
     {throw new Error(response.status);}
     
-    return res.json();}
+    return response.json();}
 );}
