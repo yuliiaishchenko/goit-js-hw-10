@@ -46,10 +46,10 @@ return;
 
 })}
 function createMarkupCountryList(result){
-    const markup =result.map(({ name, flags }) => {
+    const markup =result.map(({ name, flag }) => {
         return`
         <li class = "country-list__item">
-        <img class = "country-list__img" scr = "${flags.svg}" alt ="${name}"/>
+        <img class = "country-list__img" scr = "${flag.svg}" alt ="${name}"/>
         <p class = "country-list__text">${name.official}</p>
         </li>`
     })
@@ -58,10 +58,10 @@ function createMarkupCountryList(result){
 }
 
 function createMarkupCountryInfo(result){
-    const markup = result.map(({ name, capital, population, flags, languages }) => {
+    const markup = result.map(({ name, capital, population, flag, languages }) => {
         return `
         <div class="country__flag>
-        <img class = "country__img" src = "${flags.svg}" alt = "${name.official}">
+        <img class = "country__img" src = "${flag.svg}" alt = "${name.official}">
         <p class = "country__name">${name.official}</p>
         </div>
         <ul class = "country__info">
