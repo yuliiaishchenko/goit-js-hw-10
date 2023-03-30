@@ -61,7 +61,7 @@ function createMarkupCountryInfo(result){
     const markup = result.map(({ name, capital, population, flags, languages }) => {
         return `
         <div class="country__flag>
-        <img class = "country__img" src = "${flags.png}" alt = "flag"></div>
+        <img class = "country__img" src = "${flags.png}" alt = "${name.official}"></div>
         <p class = "country__name">${name.official}</p>
         
         <ul class = "country-info">
