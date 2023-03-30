@@ -32,9 +32,9 @@ Netflix.Notify.info('Too many matches found. Please enter a more specific name.'
 return;
     }
     else if (result.length >= 2 && result.length <= 10){
-        resetMarkup(countryList)
-        createMarkupCountryList(result)
-        resetMarkup(countryInfo)
+        resetMarkup(countryList);
+        createMarkupCountryList(result);
+        resetMarkup(countryInfo);
     }
     else{
         resetMarkup(countryInfo);
@@ -53,6 +53,8 @@ function createMarkupCountryList(result){
         <p class = "country-list__text">${name.official}</p>
         </li>`
     })
+    .join('';
+    return countryList.insertAdjacentHTML('beforeend', markup);)
 }
 
 function createMarkupCountryInfo(result){
