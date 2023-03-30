@@ -46,10 +46,10 @@ return;
 
 })}
 function createMarkupCountryList(result){
-    const markup =result.map(({ name, flag }) => {
+    const markup =result.map(({ name, flags }) => {
         return`
         <li class = "country-list__item">
-        <img class = "country-list__img" scr = "${flag.svg}" alt ="${name}"/>
+        <img class = "country-list__img" scr = "${flags.svg}" alt ="${name}"/>
         <p class = "country-list__text">${name.official}</p>
         </li>`
     })
