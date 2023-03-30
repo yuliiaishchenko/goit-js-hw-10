@@ -53,8 +53,8 @@ function createMarkupCountryList(result){
         <p class = "country-list__text">${name.official}</p>
         </li>`
     })
-    .join('';
-    return countryList.insertAdjacentHTML('beforeend', markup);)
+    .join('');
+    return countryList.insertAdjacentHTML('beforeend', markup);
 }
 
 function createMarkupCountryInfo(result){
