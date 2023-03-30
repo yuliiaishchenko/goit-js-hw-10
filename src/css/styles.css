@@ -45,3 +45,9 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+.country__flag{
+  display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+}
